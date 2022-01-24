@@ -21,7 +21,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
+    compileOnly("org.springframework.boot:spring-boot-devtools")
+    
     //Spring security
     compile 'org.springframework.boot:spring-boot-starter-security:2.0.5.RELEASE'
     compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:3.0.2.RELEASE'

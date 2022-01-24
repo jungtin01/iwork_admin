@@ -1,14 +1,21 @@
 package com.dfksoft.hrm_manage.entity;
 
-import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "report_temp")
 public class ReportTemp {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private int id;
+    
     @Column(name = "mac_address", nullable = false)
     private String macAddress;
 
@@ -29,7 +36,15 @@ public class ReportTemp {
 
     public ReportTemp() {
     }
-
+    
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getMacAddress() {
         return macAddress;
     }
