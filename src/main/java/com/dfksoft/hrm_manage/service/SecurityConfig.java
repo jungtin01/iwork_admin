@@ -37,22 +37,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/register").permitAll()
-                .antMatchers(HttpMethod.POST,"/get-report-between-date")
-                .hasRole("ADMIN")
-                .anyRequest().hasAnyRole("USER", "ADMIN")
-                .and()
-                .formLogin()
-                    .loginPage("/login")
-                    .permitAll()
-                    .usernameParameter("user-login-id")
-                    .passwordParameter("user-login-password")
-                    .failureUrl("/login-error")
-                    .successHandler(authenticationSuccessHandler())
-                .and()
-                .logout().logoutSuccessUrl("/login");
+        http.csrf().disable();
+//                .authorizeRequests()
+//                .antMatchers("/register").permitAll()
+//                .antMatchers(HttpMethod.POST,"/get-report-between-date")
+//                .hasRole("ADMIN")
+//                .antMatchers(HttpMethod.POST, "/api/user/detail").hasRole("ADMIN")
+//                .anyRequest().hasAnyRole("USER", "ADMIN")
+//                .and()
+//                .formLogin()
+//                    .loginPage("/login")
+//                    .permitAll()
+//                    .usernameParameter("user-login-id")
+//                    .passwordParameter("user-login-password")
+//                    .failureUrl("/login-error")
+//                    .successHandler(authenticationSuccessHandler())
+//                .and()
+//                .logout().logoutSuccessUrl("/login");
     }
 
     AuthenticationSuccessHandler authenticationSuccessHandler() {

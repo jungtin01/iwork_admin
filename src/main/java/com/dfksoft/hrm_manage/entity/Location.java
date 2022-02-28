@@ -1,5 +1,7 @@
 package com.dfksoft.hrm_manage.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -23,6 +25,7 @@ public class Location {
     private int companyId;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "company_id", insertable = false, updatable = false)
     private Company company;
 

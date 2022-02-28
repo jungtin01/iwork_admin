@@ -1,6 +1,9 @@
 package com.dfksoft.hrm_manage.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "company")
@@ -19,11 +22,16 @@ public class Company {
     @Column(name = "status")
     private String status;
 
-    @ManyToOne
-    @JoinColumn(name = "id", insertable = false, updatable = false)
-    private Location location;
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    //@JoinColumn(name = "id", insertable = false, updatable = false)
+    private Set<Location> location;
 
-    public Location getLocation() {
+//    public Location getLocation() {
+//        return location;
+//    }
+
+    public Set<Location> getLocation() {
         return location;
     }
 
