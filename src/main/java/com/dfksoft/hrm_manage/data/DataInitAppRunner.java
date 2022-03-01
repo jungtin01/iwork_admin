@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DataInitAppRunner implements ApplicationRunner {
-    
+
     private final AccountService accountService;
     private final CompanyRepository companyRepository;
     private final RoleService roleService;
     private final LocationService locationService;
     private final TitleService titleService;
-    
+
     public DataInitAppRunner(AccountService accountService,
         CompanyRepository companyRepository, RoleService roleService,
         LocationService locationService, TitleService titleService) {
@@ -30,7 +30,7 @@ public class DataInitAppRunner implements ApplicationRunner {
         this.locationService = locationService;
         this.titleService = titleService;
     }
-    
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         /*

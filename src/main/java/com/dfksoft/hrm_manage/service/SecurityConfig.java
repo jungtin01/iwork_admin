@@ -42,7 +42,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/register").permitAll()
                 .antMatchers(HttpMethod.POST,"/get-report-between-date")
                 .hasRole("ADMIN")
+
+                .antMatchers(HttpMethod.POST, "/api/user/detail").permitAll()
+                .antMatchers(HttpMethod.POST, "/api/user/reports").permitAll()
                 .anyRequest().hasAnyRole("USER", "ADMIN")
+
                 .and()
                 .formLogin()
                     .loginPage("/login")
