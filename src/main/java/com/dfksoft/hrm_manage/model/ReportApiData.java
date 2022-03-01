@@ -1,14 +1,15 @@
 package com.dfksoft.hrm_manage.model;
 
-import com.dfksoft.hrm_manage.entity.AccountInfo;
+import com.dfksoft.hrm_manage.entity.Report;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import org.springframework.http.ResponseEntity;
+
+import java.util.ArrayList;
 
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class UserApiData {
+public class ReportApiData {
     private int status;
-    private AccountInfo dataReport;
+    private ArrayList<Report> dataReport;
 
     public int getStatus() {
         return status;
@@ -18,11 +19,11 @@ public class UserApiData {
         this.status = status;
     }
 
-    public AccountInfo getDataReport() {
+    public ArrayList<Report> getDataReport() {
         return dataReport;
     }
 
-    public void setDataReport(AccountInfo dataReport) {
+    public void setDataReport(ArrayList<Report> dataReport) {
         this.dataReport = dataReport;
     }
 }
